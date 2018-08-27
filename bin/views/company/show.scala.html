@@ -1,0 +1,34 @@
+@(company: org.emo.business.Company, product: org.emo.business.Product)
+
+@import helper._
+@layout(company.getName()){
+
+   </script>
+   
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Employee number</th>
+					<th>Email</th>
+					<th>Product id </th>
+					<th>Product name </th>
+					<th>Product price </th>
+				</tr>
+			</thead>
+	<tbody>
+	
+		<tr>
+			<td><p>@company.getId()</p></td>
+			<td><p>@company.getName()</p></td>
+			<td><p>@company.getEmpNum()</p></td>
+			<td><p>@company.getEmail()</p></td>
+			<td><p>@product.getProductID()</p></td>
+			<td><p>@product.getProductName()</p></td>
+			<td><p>@product.getProductPrice()</p></td>
+		</tr>
+	</tbody>
+	</table>
+		<a href="#">Delete</a> 
+}

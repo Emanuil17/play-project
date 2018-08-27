@@ -1,0 +1,24 @@
+@(companyForm: Form[org.emo.business.Company],productForm: Form[org.emo.business.Product])
+
+@import helper._
+
+@layout("Company form"){
+	@helper.form(action = routes.Application.save()) {
+	
+				<form>
+					<fieldset>
+						<legend> Register company (@companyForm("name").valueOr("New"))</legend>
+						@helper.inputText(companyForm("id"),'_label-> "ID:")
+						@helper.inputText(companyForm("name"),'_label-> "Name:")
+						@helper.inputText(companyForm("empNum"),'_label-> "Employee Number:")
+						@helper.inputText(companyForm("email"),'_label -> "Company email:")
+						@helper.inputText(productForm("productID"),'_label -> "Product ID:")
+						@helper.inputText(productForm("productName"),'_label -> "Product name:")
+						@helper.inputText(productForm("productPrice"),'_label -> "Product price:")
+					</fieldset>
+						<input type="submit" value="Create">
+						<a class="btn" href="@routes.Application.list()">Cancel</a>
+	}
+}
+
+	
