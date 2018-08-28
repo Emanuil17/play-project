@@ -58,8 +58,8 @@ public class Application extends Controller {
 		Company company = companyForm.get();
 		Form<Product> productForm = formFactory.form(Product.class).bindFromRequest();
 		Product product = productForm.get();
-		List<Company> oldCompany = Company.findByID(company.id);
-		List<Product> oldProduct = Product.findByID(product.id);
+		List<Company> oldCompany = Company.findByIDs(company.id);
+		List<Product> oldProduct = Product.findByIDs(product.id);
 		
 		if (oldCompany == null && oldProduct == null) {
 			return notFound ("Company not found");
@@ -72,8 +72,8 @@ public class Application extends Controller {
 	
    // Show a particular company found by name
 	public Result show(Integer id) {
-		final Optional<Company> company = Company.findByID(id).stream().findAny();
-		final Optional<Product> product = Product.findByID(id).stream().findAny();
+		final Optional<Company> company = Company.findByIDs(id).stream().findAny();
+		final Optional<Product> product = Product.findByIDs(id).stream().findAny();
 		if (company == null && product==null) {
 			return notFound("Company not found");
 		}
@@ -91,8 +91,8 @@ public class Application extends Controller {
     
  // PROBLEM
  	public Result edit(Integer id) {
- 		List<Company> company = Company.findByID(id);
- 		List<Product> product = Product.findByID(id);
+ 		List<Company> company = Company.findByIDs(id);
+ 		List<Product> product = Product.findByIDs(id);
  		if(company == null && product ==null) {
  			return notFound("Book not found");
  		}
@@ -106,8 +106,8 @@ public class Application extends Controller {
     
     
     //Problem
-    public Result delete(String name) {
-    	final Company company = (Company) Company.findByName(name);
+    public Result delete(Integer id) {
+    	final Company company = (Company) Company.findByIDs(id);
     	if (company == null) {
     		return notFound("Company not found");
     	}

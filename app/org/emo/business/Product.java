@@ -4,9 +4,8 @@ import java.util.*;
 
 public class Product {
 	
+	// LinkedList
 	public static List<Product> products = new LinkedList<>();
-	
-	
 	
 	static {
 		products.add(new Product(1,"Iphone X", 1000));
@@ -25,7 +24,7 @@ public class Product {
         this.price = price;
         }
     
-    
+    // Generate getters and setters
     public Integer getProductID(){
         return id;
     }
@@ -49,7 +48,13 @@ public class Product {
         this.price = price;
     }
     
-    public static List<Product> findByID(Integer id) {
+    //Find All products
+    public static List<Product> findAllProducts() {
+		return new ArrayList<Product>(products);
+	}
+    
+    //Find single product
+    public static List<Product> findByIDs(Integer id) {
     	List<Product> result = new ArrayList<Product>();
     	for (Product prd : products) {
     	if(prd.id.equals(id)) {
@@ -59,14 +64,24 @@ public class Product {
     	return result;
     	}
     
-    public static Product findById(Integer id) {
-		for(Product product: products) {
-			if(product.id==id)
-				return product;
-		}
-		return null;
-	}
+    //Add product
+  	public void addProduct(Product prd) {
+  		products.add(prd);
+  	}
+  	
+    //Save product
+      public static void save(Product product) {
+      	products.add(product);
+  	}
+      
+    //Remove product
+    public static boolean remove(Product product) {
+    	return Product.remove(product);
+    }
     
+    
+    
+    //Alternative
     public static List<Product> findByName(String term){
 		List<Product> results = new ArrayList<Product>();
 		for (Product choice: products) {
@@ -78,22 +93,17 @@ public class Product {
 	}
     
 	
-	public void addProduct(Product prd) {
-		products.add(prd);
+    
+     // IN progress
+    /*
+    public static Product findById(Integer id) {
+		for(Product product: products) {
+			if(product.id==id)
+				return product;
+		}
+		return null;
 	}
+    */
     
-    public static void save(Product product) {
-    	products.add(product);
-	  }
-    
-    // Remove product
-    public static boolean remove(Product product) {
-    	return Product.remove(product);
-    }
-    
-    //Find All products
-    public static List<Product> findAllProducts() {
-		return new ArrayList<Product>(products);
-	}
     
 }

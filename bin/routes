@@ -17,8 +17,11 @@ GET		/Application/update						controllers.Application.update()
 
 GET		/Application/edit/:id					controllers.Application.edit(id: Integer)
 
-# Delete
-DELETE 	/Application/:name						controllers.Application.delete(name: String)
+#NEW
+POST 	/Application/edit						controllers.Application.update()
+
+# Delete	INTEGER INSTEAD OF STRING
+DELETE 	/Application/delete/:id					controllers.Application.delete(id: Integer)
 
 #Welcome dashboard message
 GET 	/Application/welcome/:first/:last		controllers.Application.welcome(first: String, last: String)
