@@ -1,7 +1,7 @@
-@(company: org.emo.business.Company, product: org.emo.business.Product)
+@(companies: org.emo.business.Company)
 
 @import helper._
-@layout(company.getName()){
+@layout(companies.getName()){
 
    </script>
    
@@ -20,15 +20,15 @@
 	<tbody>
 	
 		<tr>
-			<td><p>@company.getId()</p></td>
-			<td><p>@company.getName()</p></td>
-			<td><p>@company.getEmpNum()</p></td>
-			<td><p>@company.getEmail()</p></td>
-			<td><p>@product.getProductID()</p></td>
-			<td><p>@product.getProductName()</p></td>
-			<td><p>@product.getProductPrice()</p></td>
+			<td><p>@companies.getId()</p></td>
+			<td><p>@companies.getName()</p></td>
+			<td><p>@companies.getEmpNum()</p></td>
+			<td><p>@companies.getEmail()</p></td>
+			<td><p>@companies.getProductID()</p></td>
+			<td><p>@companies.getProductName()</p></td>
+			<td><p>@companies.getProductPrice()</p></td>
 		</tr>
 	</tbody>
 	</table>
-		<a href="#">Delete</a> 
+		<a href="@routes.Application.delete(companies.getId())">Delete</a> 
 }

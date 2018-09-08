@@ -1,4 +1,4 @@
-@(companyForm: Form[org.emo.business.Company], productForm: Form[org.emo.business.Product])
+@(companyForm: Form[org.emo.business.Company])
 
 @import helper._
 
@@ -12,9 +12,9 @@
 						@helper.inputText(companyForm("name"),'_label-> "Name:")
 						@helper.inputText(companyForm("empNum"),'_label-> "Employee Number:")
 						@helper.inputText(companyForm("email"),'_label -> "Company email:")
-						@helper.inputText(productForm("productID"),'_label -> "Product ID:")
-						@helper.inputText(productForm("productName"),'_label -> "Product name:")
-						@helper.inputText(productForm("productPrice"),'_label -> "Product price:")
+						@helper.inputText(companyForm("productID"),'_label -> "Product ID:")
+						@helper.inputText(companyForm("productName"),'_label -> "Product name:")
+						@helper.inputText(companyForm("productPrice"),'_label -> "Product price:")
 					</fieldset>
 						<input type="submit" value="Edit">
 				</form>

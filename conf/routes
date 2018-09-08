@@ -1,8 +1,11 @@
 #Default route
-GET		/										controllers.Application.list()
+GET		/										controllers.Application.addCompany()
 
 #Display List
 GET 	/Application/list						controllers.Application.list()
+
+#Display company details
+GET 	/Application/show						controllers.Application.show()
 
 # Save
 POST 	/Application/save						controllers.Application.save()
@@ -10,22 +13,19 @@ POST 	/Application/save						controllers.Application.save()
 # Add Company form
 GET		/Application/addCompany					controllers.Application.addCompany()
 
-#Display company details
-GET 	/Application/show/:id					controllers.Application.show(id: Integer)
-
-GET		/Application/update						controllers.Application.update()
-
+# Edit
 GET		/Application/edit/:id					controllers.Application.edit(id: Integer)
 
-#NEW
-POST 	/Application/edit						controllers.Application.update()
+# Edit
+POST	/Application/edit						controllers.Application.update()
 
-# Delete	INTEGER INSTEAD OF STRING
-DELETE 	/Application/delete/:id					controllers.Application.delete(id: Integer)
+# Delete
+GET		/Application/delete/:id					controllers.Application.delete(id: Integer)
 
 #Welcome dashboard message
 GET 	/Application/welcome/:first/:last		controllers.Application.welcome(first: String, last: String)
 
+GET		/Application/:id						controllers.Application.detailedResults(id: Integer)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
