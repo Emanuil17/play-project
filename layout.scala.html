@@ -1,0 +1,33 @@
+@(title: String)(body: play.twirl.api.Html)
+
+<!DOCTYPE html>
+<html>
+	  <head>
+    	<title>@title</title>
+    	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' data:;">
+    	<script src="@routes.Assets.versioned("js/jquery-3.3.1.min.js")" type="text/javascript"></script>
+    	<script src="@routes.Assets.versioned("js/typeahead.bundle.js")" type="text/javascript"></script>
+    	<script src="@routes.Assets.versioned("js/the-basic.js")" type="text/javascript"></script>
+   		<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("bootstrap/css/bootstrap.css")" >
+   		<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("css/styles.css")" >
+  	  </head>
+	<body>
+		<header> 
+				<nav class = "navbar navbar - expand - lg navbar-dark bg-dark">
+					<ul class= "nav mx-auto"> 
+						<li class = "nav-item active">
+						<a class = "nav-link" href="@routes.Application.welcome("First name", "Last name")">Dashboard</a>
+						</li>
+						<li class = "nav-item active">
+						<a class = "nav-link" href="@routes.Application.addCompany()">Add Company</a>
+						</li>
+						<li class = "nav-item active">
+						<a class = "nav-link" href="@routes.Application.show()">Companies list</a>
+						</li>
+					</ul>
+				</nav>
+				</div>
+		</header>
+	 @body
+	</body>
+</html>
