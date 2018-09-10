@@ -20,7 +20,7 @@ public class Application extends Controller {
 	FormFactory formFactory;
 	 
 	public Result index(){
-		return redirect (routes.Application.addCompany());
+		return redirect(routes.Application.addCompany());
 	}
 	
 	public Result list() {
@@ -39,6 +39,7 @@ public class Application extends Controller {
 		Form<Company> companyForm = formFactory.form(Company.class).bindFromRequest();//bindFormRequest extracts the information posted in the form
 		Company company = companyForm.get(); // Get company out of the form
 		Storage.save(companyForm.get()); // Save the company to the storage
+		Logger.debug("save");
 		return redirect(routes.Application.list());
 	}
 	

@@ -4,26 +4,42 @@
 
 @layout("Company form"){
 	@helper.form(action = routes.Application.save()) {
-   	<div id="the-basics">
-  		<input class="typeahead" type="text" placeholder="Company">
-	</div>
-		<form>
+		<form class="form-inline">
 			<fieldset>
-				<legend> Register company (@companyForm("name").valueOr("New"))</legend>
-					@helper.inputText(companyForm("id"),'_label-> "ID:")
-					@helper.inputText(companyForm("name"),'_label-> "Name:")
-					@helper.inputText(companyForm("empNum"),'_label-> "Employee Number:")
-					@helper.inputText(companyForm("email"),'_label -> "Company email:")
-					@helper.inputText(companyForm("productID"),'_label -> "Product ID:")
-					@helper.inputText(companyForm("productName"),'_label -> "Product name:")
-					@helper.inputText(companyForm("productPrice"),'_label -> "Product price:")
-			</fieldset>
-					<input type="submit" value="Create">
-					<a class="btn" href="@routes.Application.show()">Cancel</a>
-					
-		</form>
+				<legend> Company form</legend>
+  				<div class="order-md-1">
+  					<label for="id" >Company id:</label><br/>
+  						<input type="text" class="typeahead" value = "@companyForm("id").value" name = "id" id="company_id" /><br/>
+  			   </div>
+  				<div class="order-md-2">
+  					<label for="name" >Company name:</label><br/>
+  						<input type="text" class="typeahead" value = "@companyForm("name").value" name ="name" id="company_name" /><br/>
+  				</div>
+  				<div class="order-md-3">
+  					<label for="empNum" >Company employee number:</label><br/>
+  						<input type="text" class="typeahead" value = "@companyForm("empNum").value" name = "empNum" id="empNum" /><br/>
+ 				</div>
+ 				<div class="order-md-4">	
+ 					<label for="email">Company email: </label><br/>
+  						<input type="text" class="typeahead" value = "@companyForm("email").value" name = "email" id="email" /><br/>
+ 				</div>
+    			<div class="order-md-5">	
+ 					<label for="productID">Product id: </label><br/>
+  						<input type="text" class="typeahead" value = "@companyForm("productID").value" name = "productID" id="productID" /><br/>
+  				</div>
+  				<div class="order-md-6">
+  					<label for="productName">Product name: </label><br/>
+  						<input type="text" class="typeahead" value = "@companyForm("productName").value" name = "productName" id="productName" /><br/>
+  				</div>
+  				<div class="order-md-7">
+  					<label for="productPrice">Product price: </label><br/>
+  						<input type="text" class="typeahead" value = "@companyForm("productPrice").value" name = "productPrice" id="productPrice" /><br/>
+				</div>
+				
+				<input type="submit" value="Create">
+				<a class="btn" href="@routes.Application.show()">Cancel</a>
+				</fieldset>
+			</form>
 	
 	}
 }
-
-	
