@@ -1,4 +1,3 @@
-/*
  var substringMatcher = function(strs) {
 	return function findMatches(q, cb) {
 		var matches, substringRegex;
@@ -39,7 +38,7 @@ $(document).ready(function () {
 	}
 });
 
-*/
+
 /*
 var CompanyData = [{
    id:"1",

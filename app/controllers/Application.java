@@ -3,6 +3,7 @@ package controllers;
 import javax.inject.Inject;
 
 import play.Logger;
+import play.data.DynamicForm;
 import play.data.Form;
 import play.data.FormFactory;
 import play.mvc.Controller;
@@ -38,6 +39,7 @@ public class Application extends Controller {
 	public Result save() {	
 		Form<Company> companyForm = formFactory.form(Company.class).bindFromRequest();//bindFormRequest extracts the information posted in the form
 		Company company = companyForm.get(); // Get company out of the form
+		
 		Storage.save(companyForm.get()); // Save the company to the storage
 		Logger.debug("save");
 		return redirect(routes.Application.list());
@@ -103,9 +105,12 @@ public class Application extends Controller {
 		Oldcompany.name = company.name;
 		Oldcompany.empNum = company.empNum;
 		Oldcompany.email = company.email; 
-		Oldcompany.productID = company.productID;
-		Oldcompany.productName = company.productName;
-		Oldcompany.productPrice = company.productPrice;
+		Oldcompany.setProductID(company.getProductID());
+		Oldcompany.setProductName(company.getProductName());
+		Oldcompany.setProductPrice(company.getProductPrice());
+		//Oldcompany.productID = company.productID;
+		//Oldcompany.productName = company.productName;
+		//Oldcompany.productPrice = company.productPrice;
 		
 		return redirect(routes.Application.list());
 	}

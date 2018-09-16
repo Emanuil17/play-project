@@ -9,9 +9,9 @@ public class Company {
 	   public String name;
 	   public Integer empNum;
 	   public String email;
-	   public List<Integer> productID;
-	   public List<String> productName;
-	   public List<Double> productPrice;
+	   private List<Integer> productID;
+	   private List<String> productName;
+	   private List<Double> productPrice;
 	   
 	//Default constructor
 	   public Company() {}

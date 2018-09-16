@@ -1,45 +1,75 @@
 @(companyForm: Form[org.emo.business.Company])
-
 @import helper._
-
-@layout("Company form"){
-	@helper.form(action = routes.Application.save()) {
-		<form class="form-inline">
-			<fieldset>
-				<legend> Company form</legend>
-  				<div class="order-md-1">
-  					<label for="id" >Company id:</label><br/>
-  						<input type="text" class="typeahead" value = "@companyForm("id").value" name = "id" id="company_id" /><br/>
-  			   </div>
-  				<div class="order-md-2">
-  					<label for="name" >Company name:</label><br/>
-  						<input type="text" class="typeahead" value = "@companyForm("name").value" name ="name" id="company_name" /><br/>
-  				</div>
-  				<div class="order-md-3">
-  					<label for="empNum" >Company employee number:</label><br/>
-  						<input type="text" class="typeahead" value = "@companyForm("empNum").value" name = "empNum" id="empNum" /><br/>
- 				</div>
- 				<div class="order-md-4">	
- 					<label for="email">Company email: </label><br/>
-  						<input type="text" class="typeahead" value = "@companyForm("email").value" name = "email" id="email" /><br/>
- 				</div>
-    			<div class="order-md-5">	
- 					<label for="productID">Product id: </label><br/>
-  						<input type="text" class="typeahead" value = "@companyForm("productID").value" name = "productID" id="productID" /><br/>
-  				</div>
-  				<div class="order-md-6">
-  					<label for="productName">Product name: </label><br/>
-  						<input type="text" class="typeahead" value = "@companyForm("productName").value" name = "productName" id="productName" /><br/>
-  				</div>
-  				<div class="order-md-7">
-  					<label for="productPrice">Product price: </label><br/>
-  						<input type="text" class="typeahead" value = "@companyForm("productPrice").value" name = "productPrice" id="productPrice" /><br/>
-				</div>
-				
-				<input type="submit" value="Create">
-				<a class="btn" href="@routes.Application.show()">Cancel</a>
-				</fieldset>
-			</form>
+<!DOCTYPE html>
+<html>
+	<head>
+    		<title>Detailed page</title>
+    	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' data:;">
+    	<script src="@routes.Assets.versioned("js/jquery-3.3.1.min.js")" type="text/javascript"></script>
+    	<script src="@routes.Assets.versioned("js/typeahead.bundle.js")" type="text/javascript"></script>
+    	<script src="@routes.Assets.versioned("js/bloodhound.js")" type="text/javascript"></script>
+    	<script src="@routes.Assets.versioned("js/the-basic.js")" type="text/javascript"></script>
+    	<script src="@routes.Assets.versioned("js/button.js")" type="text/javascript"></script>
+    	
+   		<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("bootstrap/css/bootstrap.css")" >
+   		<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("css/styles.css")" >
 	
-	}
+	</head>
+	 <body>
+	   <header> 
+		<nav class = "navbar navbar - expand - lg navbar-dark bg-dark">
+			<ul class= "nav mx-auto"> 
+				<li class = "nav-item active">
+					<a class = "nav-link" href="@routes.Application.welcome("First name", "Last name")">Dashboard</a>
+				</li>
+				<li class = "nav-item active">
+					<a class = "nav-link" href="@routes.Application.addCompany()">Add Company</a>
+				</li>
+				<li class = "nav-item active">
+					<a class = "nav-link" href="@routes.Application.show()">Companies list</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	@helper.form(action = routes.Application.save()) {
+			<fieldset class="fieldset">
+				<legend> Company form</legend>
+  					<div class="order-md-1">
+  						<label for="id" >Company id:</label><br/>
+  							<input type="text" class="typeahead" value = "@companyForm("id").value" name = "id" id="company_id" /><br/>
+  			   		</div>
+  					<div class="width" id="the-basics">
+  						<label for="name" >Company name:</label><br/>
+  							<input type="text" class="typeahead" value = "@companyForm("name").value" name ="name" id="company_name" /><br/>
+  					</div>
+  					<div class="order-md-3">
+  						<label for="empNum" >Company employee number:</label><br/>
+  							<input type="text" class="typeahead" value = "@companyForm("empNum").value" name = "empNum" id="empNum" /><br/>
+ 					</div>
+ 					<div class="order-md-4">	
+ 						<label for="email">Company email: </label><br/>
+  							<input type="text" class="typeahead" value = "@companyForm("email").value" name = "email" id="email" /><br/>
+ 					</div>
+ 				<div id='clonedSection1' class="clonedSection"> <!--  Beginning of the copy section -->
+    				<div class="order-md-5">	
+ 						<label for="productID">Product id: </label><br/>
+  							<input type="text" class="typeahead" value = "@companyForm("productID").value" name = "productID[]" id="productID" /><br/>
+  					</div>
+  					<div class="order-md-6">
+  						<label for="productName">Product name: </label><br/>
+  							<input type="text" class="typeahead" value = "@companyForm("productName").value" name = "productName[]" id="productName" /><br/>
+  					</div>
+  					<div class="order-md-7">
+  						<label for="productPrice">Product price: </label><br/>
+  							<input type="text" class="typeahead" value = "@companyForm("productPrice").value" name = "productPrice[]" id="productPrice" /><br/>
+					</div>
+					  <div>
+        					<input type='button' id='btnAdd' value='Add another product' />
+    				  </div>
+				</div> <!-- End of the copy section -->
+			</fieldset>
+			<input type="submit" id="submitBut" value="Create">
+				<a class="btn" href="@routes.Application.show()">Cancel</a>
 }
+	</body>
+</html>

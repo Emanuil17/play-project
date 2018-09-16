@@ -1190,6 +1190,10 @@ pre code {
   }
 }
 
+.width{
+width: auto;	
+}
+
 @media (min-width: 992px) {
   .col-lg {
     -ms-flex-preferred-size: 0;
